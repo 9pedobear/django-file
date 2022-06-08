@@ -10,6 +10,7 @@ urlpatterns = [
     path('books/', views.book_list, name='book_list'),
     path('books/upload/', views.upload_book, name='upload_book'),
     path('admin/', admin.site.urls),
+    path('books/<int:pk>/', views.delete_book, name='delete_book'),
 ]
 
 if settings.DEBUG:
