@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from django.core.files.storage import FileSystemStorage
 from django.views.generic import TemplateView
 
 
@@ -12,7 +12,8 @@ def upload(request):
         uploaded_file = request.FILES['document']
         print(uploaded_file.name)
         print(uploaded_file.size)
-        # fs = FileSystemStorage()
-        # name = fs.save(uploaded_file.name, uploaded_file)
+        fs = FileSystemStorage()
+        print(fs)
+        fs.save(uploaded_file.name, uploaded_file)
         # context['url'] = fs.url(name)
     return render(request, 'upload.html')
